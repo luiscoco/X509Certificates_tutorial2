@@ -30,8 +30,8 @@ class Program
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
         // Load the certificate
-        var certificatePath = @"path_to_your_certificate.pfx";
-        var certificatePassword = "your_certificate_password";
+        var certificatePath = @"C:\\Client_Console_Application\\Client_Console_API_call\\client_cert.pfx";
+        var certificatePassword = "your_password";
         var certificate = new X509Certificate2(certificatePath, certificatePassword);
 
         var handler = new HttpClientHandler();
