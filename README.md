@@ -2,7 +2,7 @@
 
 ## 1. How to call API endpoint that requires client certificate authentication 
 
-### 1.1. Client-Side C# console application
+### 1.1. Client-Side .NET8 C# console application
 
 This example calls a hypothetical public API endpoint that requires client certificate authentication and shows how to include a certificate from a file
 
