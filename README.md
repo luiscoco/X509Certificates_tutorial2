@@ -305,8 +305,7 @@ Now we first validate our certificate was installed running the **Manage user ce
 
 We navigate into the **Personal** folder and we can see our certificate was already placed in this folder.
 
-![Uploading image.png…]()
-
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/f3ec9cc8-cf08-48e5-bcd0-e858e4d80127)
 
 **Verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
 
