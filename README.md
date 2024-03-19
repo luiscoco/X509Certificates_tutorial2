@@ -194,7 +194,6 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
             if (DateTime.Now > certificate.NotAfter || DateTime.Now < certificate.NotBefore)
             {
                 return false; // Certificate is expired or not yet valid
-
             }
 
             // Example: Validate the certificate thumbprint
@@ -293,6 +292,27 @@ We select the option **Manage certificates**
 We double click on our certificate
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/8df308de-f53c-4c38-aba6-9006cd5874d5)
+
+We copy the certificate required data in the server application: Issuer, Valid From, Valid To and Thumbprint
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/5294ee93-db0b-4705-aa0b-7ab11141cb6e)
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/8fbfb863-cbdc-4c18-b368-28e6ac5cc4bd)
+
+The **Issuer** value should be paste in the following server app code:
+
+```csharp
+ var expectedIssuer = "CN=YourCAName, O=YourOrganization, L=YourCity, S=YourState, C=US";
+```
+
+The **Valid From** and **Valid To** dates should comply with the following server app code:
+
+```csharp
+if (DateTime.Now > certificate.NotAfter || DateTime.Now < certificate.NotBefore)
+{
+   return false; // Certificate is expired or not yet valid
+}
+```
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
