@@ -2,6 +2,8 @@
 
 ## 1. How to call API endpoint that requires client certificate authentication 
 
+See the source code for this sample in this github repo: https://github.com/luiscoco/X509Certificates_tutorial2
+
 ### 1.1. Client-Side 
 
 #### 1.1.1. Create a .NET8 C# console application (client-side)
