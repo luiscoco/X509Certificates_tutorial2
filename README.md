@@ -131,6 +131,10 @@ openssl pkcs12 -export -out client_cert.pfx ^
 -password pass:your_password
 ```
 
+After running the above commands we get the PFX file highlighed in the following picture
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/2b0440a0-3a72-413a-9749-8d7e06c4d883)
+
 There are another options for obtaining a certificate:
 
 **Purchase from a Certificate Authority (CA)**: You can buy a certificate from a recognized CA. After purchasing, you'll go through a validation process, and then the CA will provide you with a certificate file (usually .crt) and a private key file.
