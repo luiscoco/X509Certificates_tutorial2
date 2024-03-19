@@ -63,7 +63,7 @@ class Program
 
 **Purchase from a Certificate Authority (CA)**: You can buy a certificate from a recognized CA. After purchasing, you'll go through a validation process, and then the CA will provide you with a certificate file (usually .crt) and a private key file.
 
-**Generate a Self-Signed Certificate**: For development purposes, you can create a self-signed certificate using tools like OpenSSL. However, remember that self-signed certificates are not trusted by clients by default and are not suitable for production environments.
+**Generate a Self-Signed Certificate**: For development purposes, you can create a self-signed certificate using tools like **OpenSSL** (as I explained in the previous Linkedin post). However, remember that self-signed certificates are not trusted by clients by default and are not suitable for production environments.
 
 **Use Let's Encrypt**: For web servers, you can obtain a free certificate from Let's Encrypt. They provide tools like Certbot to automate the certificate issuance and installation process.
 
