@@ -18,7 +18,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        var endpoint = "https://example.com/api/resource";
+        var endpoint = "https://localhost:7051/api/resource";
         var requestJson = new
         {
             // Sample request payload
