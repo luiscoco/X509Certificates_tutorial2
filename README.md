@@ -2,7 +2,9 @@
 
 ## 1. How to call API endpoint that requires client certificate authentication 
 
-### 1.1. Client-Side .NET8 C# console application
+### 1.1. Client-Side 
+
+#### 1.1.1. Create a .NET8 C# console application (client-side)
 
 This example calls a hypothetical public API endpoint that requires client certificate authentication and shows how to include a certificate from a file
 
@@ -69,7 +71,7 @@ class Program
 }
 ```
 
-**How to Obtain a Certificate**:
+#### 1.1.2. How to Obtain a Certificate**
 
 **Generate a Self-Signed Certificate**: For development purposes, you can create a self-signed certificate using tools like **OpenSSL** (as I explained in the previous Linkedin post)
 
@@ -135,7 +137,7 @@ After running the above commands we get the PFX file highlighed in the following
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/2b0440a0-3a72-413a-9749-8d7e06c4d883)
 
-There are another options for obtaining a certificate:
+#### 1.1.3. There are another options for obtaining a certificate
 
 **Purchase from a Certificate Authority (CA)**: You can buy a certificate from a recognized CA. After purchasing, you'll go through a validation process, and then the CA will provide you with a certificate file (usually .crt) and a private key file.
 
@@ -151,7 +153,9 @@ When using a certificate for authentication, ensure it's securely stored and its
 
 Be cautious with **disabling** certificate validation (**ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;**) in **production environments**, as it can make your application vulnerable to man-in-the-middle attacks.
 
-### 1.2. Server-Side C# WebAPI application
+### 1.2. Server-Side 
+
+#### 1.2.1. Create a .NET8 C# WebAPI application (server-side)
 
 We run Visual Studio 2022 Community Edition and we create a .NET8 WebAPI without controllers
 
@@ -259,7 +263,7 @@ public class RequestPayload
 }
 ```
 
-**Set the launchSettings.json**
+#### 1.2.2. Set the launchSettings.json
 
 Copy the HTTPS endpoint and paste it in the Client application: 
 
@@ -271,7 +275,7 @@ See the server launch settings:
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/36346324-ffd0-4dd2-975b-3d42e8f4ca0d)
 
-**Install the Certificate in the Internet WebBrowser (Google Chrome)**
+#### 1.2.3. Install the Certificate in the Internet WebBrowser (Google Chrome)
 
 Before running the application we have to install the certificate in the internet web browser where we are going to run the server application
 
@@ -307,7 +311,9 @@ We navigate into the **Personal** folder and we can see our certificate was alre
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/f3ec9cc8-cf08-48e5-bcd0-e858e4d80127)
 
-**Verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
+#### 1.2.4. Verify the Certificate and copy certificate values in the server application
+
+We verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
 
 Go to **Settings** in the Google Chrome menu
 
