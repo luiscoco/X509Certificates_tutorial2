@@ -81,7 +81,103 @@ Be cautious with **disabling** certificate validation (**ServerCertificateCustom
 
 ### 1.2. Server-Side C# WebAPI application
 
+```csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Security;
 
+var builder = WebApplication.CreateBuilder(args);
+
+// Assume HTTPS is properly configured in the hosting environment or through Kestrel configuration.
+// For client certificate validation, we can configure Kestrel to require certificates.
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ConfigureHttpsDefaults(httpsOptions =>
+    {
+        // Require a client certificate
+        httpsOptions.ClientCertificateMode = Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.RequireCertificate;
+        // Optionally, add custom validation here
+        httpsOptions.ClientCertificateValidation = (certificate, chain, sslPolicyErrors) => {
+            // Implement validation logic as needed. For demo purposes, returning true.
+            // Example: Check the certificate issuer
+            var expectedIssuer = "CN=TrustedIssuer";
+            if (certificate.Issuer != expectedIssuer)
+            {
+                return false; // Certificate was not issued by the expected issuer
+            }
+
+            // Example: Ensure the certificate is not expired
+            if (DateTime.Now > certificate.NotAfter || DateTime.Now < certificate.NotBefore)
+            {
+                return false; // Certificate is expired or not yet valid
+
+            }
+
+            // Example: Validate the certificate thumbprint
+            var expectedThumbprint = "cb6f3ac411c473388a680d97550ef955bc0d2ab0";
+            if (certificate.Thumbprint != expectedThumbprint)
+            {
+                return false; // Certificate thumbprint does not match the expected value
+            }
+
+            // Check for any SSL policy errors (if you want to be strict about them)
+            if (sslPolicyErrors != SslPolicyErrors.None)
+            {
+                return false; // There were SSL policy errors
+            }
+
+            return true; // All checks passed, certificate is valid
+        };
+    });
+});
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.MapPost("/api/resource", async (HttpRequest req) =>
+{
+    // Deserialize the JSON content to the model.
+    var requestModel = await JsonSerializer.DeserializeAsync<RequestPayload>(req.Body);
+
+    // Process the request (here, simply echoing back the received properties).
+    var response = new
+    {
+        Message = "Received your request",
+        ReceivedProperty1 = requestModel?.Property1,
+        ReceivedProperty2 = requestModel?.Property2
+    };
+
+    // Respond with JSON.
+    return Results.Json(response);
+});
+
+
+app.Run();
+
+// Define a model that matches the client's JSON structure.
+public class RequestPayload
+{
+    public string Property1 { get; set; }
+    public string Property2 { get; set; }
+}
+```
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
