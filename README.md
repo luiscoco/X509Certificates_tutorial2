@@ -260,9 +260,23 @@ public class RequestPayload
 }
 ```
 
+**Set the launchSettings.json**
+
+Copy the HTTPS endpoint and paste it in the Client application: 
+
+```
+var endpoint = "https://localhost:7051/api/resource";
+```
+
+See the server launch settings:
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/36346324-ffd0-4dd2-975b-3d42e8f4ca0d)
+
 **Install the Certificate in the Internet WebBrowser (Google Chrome)**
 
-Before running the application we have to install
+Before running the application we have to install the certificate in the internet web browser where we are going to run the server application
+
+
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
