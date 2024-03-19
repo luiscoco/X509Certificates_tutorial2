@@ -6,6 +6,14 @@
 
 This example calls a hypothetical public API endpoint that requires client certificate authentication and shows how to include a certificate from a file
 
+We create a C# console application with the following project structure
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/7cbde71a-ed47-493d-aa19-52c2d775a166)
+
+We add the source code
+
+**Program.cs**
+
 ```csharp
 using System;
 using System.Net.Http;
@@ -63,9 +71,69 @@ class Program
 
 **How to Obtain a Certificate**:
 
-**Purchase from a Certificate Authority (CA)**: You can buy a certificate from a recognized CA. After purchasing, you'll go through a validation process, and then the CA will provide you with a certificate file (usually .crt) and a private key file.
+**Generate a Self-Signed Certificate**: For development purposes, you can create a self-signed certificate using tools like **OpenSSL** (as I explained in the previous Linkedin post)
 
-**Generate a Self-Signed Certificate**: For development purposes, you can create a self-signed certificate using tools like **OpenSSL** (as I explained in the previous Linkedin post). However, remember that self-signed certificates are not trusted by clients by default and are not suitable for production environments.
+However, remember that self-signed certificates are not trusted by clients by default and are not suitable for production environments
+
+We are going to create a **Self-Signed Certificate** with **OpenSSL**
+
+**Step 1: Generate the CA's Key and Certificate**
+
+Generate the CA's Private Key
+
+```
+openssl genpkey -algorithm RSA -out ca_key.pem -pkeyopt rsa_keygen_bits:2048
+```
+
+Create the CA Certificate
+
+```
+openssl req -x509 -new -nodes -key ca_key.pem ^
+-days 1024 -out ca_cert.pem ^
+-subj "/C=US/ST=YourState/L=YourCity/O=YourOrganization/CN=YourCAName"
+```
+
+**Step 2: Generate the Client's Key and CSR**
+
+Generate the Client's Private Key
+
+```
+openssl genpkey -algorithm RSA -out client_key.pem -pkeyopt rsa_keygen_bits:2048
+```
+
+Create a CSR for the Client
+
+```
+openssl req -new -key client_key.pem ^
+-out client.csr ^
+-subj "/C=US/ST=YourState/L=YourCity/O=YourOrganization/CN=YourClientName"
+```
+
+**Step 3: Sign the Client CSR with Your CA**
+
+Sign the CSR to Create the Client Certificate
+
+```
+openssl x509 -req -in client.csr ^
+-CA ca_cert.pem -CAkey ca_key.pem -CAcreateserial ^
+-out client_cert.pem -days 365 -sha256
+```
+
+**Step 4: Create a PFX File from the Client Certificate and Key**
+
+Generate the PFX File
+
+```
+openssl pkcs12 -export -out client_cert.pfx ^
+-inkey client_key.pem ^
+-in client_cert.pem ^
+-certfile ca_cert.pem ^
+-password pass:your_password
+```
+
+There are another options for obtaining a certificate:
+
+**Purchase from a Certificate Authority (CA)**: You can buy a certificate from a recognized CA. After purchasing, you'll go through a validation process, and then the CA will provide you with a certificate file (usually .crt) and a private key file.
 
 **Use Let's Encrypt**: For web servers, you can obtain a free certificate from Let's Encrypt. They provide tools like Certbot to automate the certificate issuance and installation process.
 
