@@ -358,6 +358,16 @@ We also have to copy the **Thumbprint** value in the following server app code:
  var expectedThumbprint = "27B83C3F11DF3C716FD583366075DB30A344CF4B";
 ```
 
+### 1.3. How to run the applications (clien-side and server-side)
+
+We have to start first the **Server** application
+
+The first time we build and **run the server-side application** in Visual Studio 2022, the internet web browser requires us to select a certificate, 
+
+we have to **select the certificate** se installed in section 1.2.3 in this document
+
+
+
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
 Below is the complete code for a C# console application that demonstrates loading an X.509 certificate from a file and using it to encrypt and decrypt a message
