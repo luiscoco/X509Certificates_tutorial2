@@ -2,6 +2,8 @@
 
 ## 1. How to call API endpoint that requires client certificate authentication 
 
+### 1.1. Client-Side C# console application
+
 This example calls a hypothetical public API endpoint that requires client certificate authentication and shows how to include a certificate from a file
 
 ```csharp
@@ -76,6 +78,11 @@ class Program
 When using a certificate for authentication, ensure it's securely stored and its password is protected.
 
 Be cautious with **disabling** certificate validation (**ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;**) in **production environments**, as it can make your application vulnerable to man-in-the-middle attacks.
+
+### 1.2. Server-Side C# WebAPI application
+
+
+
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
