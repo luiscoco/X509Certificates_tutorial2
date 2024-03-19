@@ -314,6 +314,11 @@ if (DateTime.Now > certificate.NotAfter || DateTime.Now < certificate.NotBefore)
 }
 ```
 
+We also have to copy the **Thumbprint** value in the following server app code:
+
+```csharp
+ var expectedThumbprint = "27B83C3F11DF3C716FD583366075DB30A344CF4B";
+```
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
