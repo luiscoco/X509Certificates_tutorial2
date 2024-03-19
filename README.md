@@ -153,8 +153,17 @@ Be cautious with **disabling** certificate validation (**ServerCertificateCustom
 
 ### 1.2. Server-Side C# WebAPI application
 
-```csharp
-using Microsoft.AspNetCore.Builder;
+We run Visual Studio 2022 Community Edition and we create a .NET8 WebAPI without controllers
+
+This is the project structure
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/d5d68136-4a22-4cab-b6a5-a1e06c150637)
+
+Now we input the source code in the middleware (Program.cs file)
+
+**Program.cs**
+
+```csharpusing Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 using System.Security.Cryptography.X509Certificates;
@@ -175,7 +184,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
         httpsOptions.ClientCertificateValidation = (certificate, chain, sslPolicyErrors) => {
             // Implement validation logic as needed. For demo purposes, returning true.
             // Example: Check the certificate issuer
-            var expectedIssuer = "CN=TrustedIssuer";
+            var expectedIssuer = "CN=YourCAName, O=YourOrganization, L=YourCity, S=YourState, C=US";
             if (certificate.Issuer != expectedIssuer)
             {
                 return false; // Certificate was not issued by the expected issuer
@@ -189,7 +198,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
             }
 
             // Example: Validate the certificate thumbprint
-            var expectedThumbprint = "cb6f3ac411c473388a680d97550ef955bc0d2ab0";
+            var expectedThumbprint = "27B83C3F11DF3C716FD583366075DB30A344CF4B";
             if (certificate.Thumbprint != expectedThumbprint)
             {
                 return false; // Certificate thumbprint does not match the expected value
@@ -251,6 +260,9 @@ public class RequestPayload
 }
 ```
 
+**Install the Certificate in the Internet WebBrowser (Google Chrome)**
+
+Before running the application we have to install
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
