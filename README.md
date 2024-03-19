@@ -276,6 +276,23 @@ See the server launch settings:
 
 Before running the application we have to install the certificate in the internet web browser where we are going to run the server application
 
+**Verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
+
+Go to **Settings** in the Google Chrome menu
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/c581e772-4f1c-4b7f-b490-7d0bbb950d02)
+
+Then we select the menu option **Privacy and Security** and then **Security**
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/129edb91-6f8e-4841-b026-83deb74ba3fc)
+
+We select the option **Manage certificates**
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/3ba3252a-efc4-4dfb-9855-b03712cfea51)
+
+We double click on our certificate
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/8df308de-f53c-4c38-aba6-9006cd5874d5)
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
