@@ -360,12 +360,19 @@ We also have to copy the **Thumbprint** value in the following server app code:
 
 ### 1.3. How to run the applications (clien-side and server-side)
 
+As first step is recomended to clean the Internet WebBrowser History
+
 We have to start first the **Server** application
 
 The first time we build and **run the server-side application** in Visual Studio 2022, the internet web browser requires us to select a certificate, 
 
 we have to **select the certificate** se installed in section 1.2.3 in this document
 
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/efb1d558-4ef0-4d8e-aad9-af06d96cd866)
+
+Then we will see the WebAPI swagger docs
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/fbe71c02-14c7-4865-8ee6-67a56419660a)
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
