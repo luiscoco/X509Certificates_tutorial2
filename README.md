@@ -384,6 +384,22 @@ We open the solution in Visual Studion, we build and run it
 
 We verify the client send the certificate to the server in the API call request
 
+### 1.4. Hot to test the Server-side with Postman
+
+Install and run Postman
+
+Create a new POST request and input the following data
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/f3c0cccd-36b6-464d-b9b3-58e371b8ed30)
+
+Before sending the request we have to **install the certificate in Postman**
+
+We selet **Settings** in the Postman menu
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/c26cda35-0d1b-4f18-9090-cf60a03189ec)
+
+
+
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
 Below is the complete code for a C# console application that demonstrates loading an X.509 certificate from a file and using it to encrypt and decrypt a message
