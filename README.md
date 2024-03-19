@@ -6,11 +6,11 @@
 
 This example calls a hypothetical public API endpoint that requires client certificate authentication and shows how to include a certificate from a file
 
-We create a C# console application with the following project structure
+Firstly, we run Visual Studio 2022 Community Edition and we create a C# console application with the following project structure:
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/7cbde71a-ed47-493d-aa19-52c2d775a166)
 
-We add the source code
+We add the source code:
 
 **Program.cs**
 
