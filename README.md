@@ -48,7 +48,7 @@ class Program
         handler.ClientCertificates.Add(certificate);
 
         // For demonstration purposes only: Trust all certificates
-        handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+        //handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
         using (var httpClient = new HttpClient(handler))
         {
@@ -378,7 +378,11 @@ Then we will see the WebAPI swagger docs
 
 #### 1.3.2. Run the Client
 
+We open the solution in Visual Studion, we build and run it
 
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/0c41d8cb-8f0f-4994-aad2-f2b6521e890e)
+
+We verify the client send the certificate to the server in the API call request
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
