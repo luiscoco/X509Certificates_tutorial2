@@ -398,6 +398,16 @@ We selet **Settings** in the Postman menu
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/c26cda35-0d1b-4f18-9090-cf60a03189ec)
 
+We select **Certificates** and then we press the button **Add Certificate**
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/8085f6b8-b64f-4a5e-805b-369d973a6f7f)
+
+We input the **server name**, we select the **certificate PFX file**, and we enter the **certificate password**, and finally we press the **Add** button
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/72d4998c-af82-4f3b-b04c-a89cfc028b72)
+
+We close the Certificates window and we return to the Postman desktop
+
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
