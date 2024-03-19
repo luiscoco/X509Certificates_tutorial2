@@ -40,7 +40,7 @@ class Program
         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
         // Load the certificate
-        var certificatePath = @"C:\\Client_Console_Application\\Client_Console_API_call\\client_cert.pfx";
+        var certificatePath = @"C:\\Client_Console_Application\\client_cert.pfx";
         var certificatePassword = "your_password";
         var certificate = new X509Certificate2(certificatePath, certificatePassword);
 
@@ -360,6 +360,8 @@ We also have to copy the **Thumbprint** value in the following server app code:
 
 ### 1.3. How to run the applications (clien-side and server-side)
 
+#### 1.3.1. Run the Server
+
 As first step is recomended to clean the Internet WebBrowser History
 
 We have to start first the **Server** application
@@ -373,6 +375,9 @@ we have to **select the certificate** se installed in section 1.2.3 in this docu
 Then we will see the WebAPI swagger docs
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/fbe71c02-14c7-4865-8ee6-67a56419660a)
+
+#### 1.3.2. Run the Client
+
 
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
