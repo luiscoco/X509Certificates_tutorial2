@@ -408,7 +408,9 @@ We input the **server name**, we select the **certificate PFX file**, and we ent
 
 We close the Certificates window and we return to the Postman desktop
 
+We can now press the **Send** button and get the response from the server
 
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/59586974-956f-47db-bed9-e7d002066bdc)
 
 ## 2. Loading an X.509 certificate from a file and using it to encrypt and decrypt a message
 
