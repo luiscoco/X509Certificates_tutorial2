@@ -275,6 +275,27 @@ See the server launch settings:
 
 Before running the application we have to install the certificate in the internet web browser where we are going to run the server application
 
+We double click on the PFX file 
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/ffff14ff-9a24-4d31-896a-4fd9c9932227)
+
+We select to install the certificate for the **current user** or for the **local machine** and click on Next button
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/651dbd22-eaef-4d55-ba9e-88c3a5b0eb8c)
+
+We leave the PFX file path as default input by the computer and click on Next button
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/9b1ab8a1-aa0c-4ca5-8ba2-245a3f7d28ba)
+
+We input the password: **your_password** set in the Step 4 in this document and click on Next button
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/883dbe87-c51a-4804-a956-35bd92b0d61a)
+
+We leave the default value to automatically place the certificate when better considered by the computer
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/f06c65f7-774c-4716-91f7-dfac05ac5ec1)
+
+
 **Verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
 
 Go to **Settings** in the Google Chrome menu
