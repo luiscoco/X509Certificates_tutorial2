@@ -295,6 +295,18 @@ We leave the default value to automatically place the certificate when better co
 
 ![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/f06c65f7-774c-4716-91f7-dfac05ac5ec1)
 
+We press the Finish button
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/ac56ea80-999b-41de-a2e0-158f621555f7)
+
+Now we first validate our certificate was installed running the **Manage user certificates** application
+
+![image](https://github.com/luiscoco/X509Certificates_tutorial2/assets/32194879/0c0d1d71-93a6-4ba8-ae66-d59d383b27cb)
+
+We navigate into the **Personal** folder and we can see our certificate was already placed in this folder.
+
+![Uploading image.png…]()
+
 
 **Verify the Certificate is already installed in the Internet WebBrowser (Google Chrome) and copy the certificate information in the Server source code**
 
